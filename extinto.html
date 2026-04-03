@@ -1,1 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <meta name="description" content="Extintor 333 - Recarga de extintores, mantenimiento e inspección profesional en Bucaramanga y Floridablanca. Servicio rápido y certificado."/>
+  <title>Extintor 333 | Recarga de Extintores en Bucaramanga y Floridablanca</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    :root{
+      --red: #ff0000;
+      --orange: #ff4500;
+      --gray: #0a0a0a;
+      --lightgray: #1f1f1f;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{background:var(--gray);color:#fff;font-family:'Rajdhani',sans-serif;overflow-x:hidden;}
+    h1,h2,h3{font-family:'Orbitron',sans-serif;text-transform:uppercase;letter-spacing:2px;}
+
+    header{
+      position:fixed;top:0;left:0;width:100%;background:rgba(0,0,0,0.95);backdrop-filter:blur(12px);z-index:1000;
+      padding:15px 5%;display:flex;justify-content:space-between;align-items:center;
+      border-bottom:4px solid var(--red);box-shadow:0 0 25px var(--red);
+    }
+    .logo{
+      font-size:clamp(2.3rem,7vw,3.4rem);font-weight:900;
+      background:linear-gradient(90deg,var(--red),var(--orange),var(--red));
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+      text-shadow:0 0 30px var(--red);
+    }
+    nav{display:flex;gap:25px;flex-wrap:wrap;}
+    nav a{color:#fff;text-decoration:none;font-weight:bold;font-size:1.15rem;transition:0.4s;}
+    nav a:hover{color:var(--orange);text-shadow:0 0 15px var(--orange);}
+
+    .menu-toggle{display:none;font-size:2.4rem;color:var(--red);cursor:pointer;}
+
+    .whatsapp-fixed{
+      position:fixed;bottom:20px;right:20px;background:var(--red);color:white;
+      width:70px;height:70px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+      font-size:2.9rem;box-shadow:0 0 40px var(--red);animation:pulse-red 2s infinite;z-index:999;
+    }
+
+    .hero{
+      min-height:100vh;background:linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), url('https://source.unsplash.com/random/1920x1080/?fire-extinguisher,emergency') center/cover no-repeat;
+      display:flex;align-items:center;justify-content:center;text-align:center;position:relative;
+      padding:120px 20px 80px;
+    }
+    .hero h1{
+      font-size:clamp(3.8rem,12vw,7.5rem);font-weight:900;
+      background:linear-gradient(90deg,var(--red),var(--orange),#ff6666);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+      text-shadow:0 0 40px var(--red);
+    }
+    .hero p{
+      font-size:clamp(1.3rem,4vw,2.2rem);margin:25px 0;color:#ffcc99;
+      max-width:850px;
+    }
+    .hero-buttons{margin-top:50px;display:flex;flex-direction:column;gap:20px;align-items:center;}
+    .btn{
+      padding:16px 45px;font-size:1.6rem;font-weight:900;text-transform:uppercase;
+      border:4px solid var(--red);color:var(--red);background:transparent;
+      min-width:280px;border-radius:8px;transition:all 0.4s;
+    }
+    .btn:hover{
+      background:var(--red);color:#000;transform:scale(1.05);
+      box-shadow:0 0 50px var(--red);
+    }
+    .btn.whatsapp{background:var(--red);border-color:var(--red);color:#fff;}
+
+    /* Secciones */
+    .services{
+      padding:110px 5% 120px;
+      background:linear-gradient(135deg, var(--gray), #2a0000);
+    }
+    .section-title h2{
+      text-align:center;font-size:clamp(2.6rem,8vw,4.2rem);margin-bottom:20px;
+      color:var(--red);
+    }
+    .services-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));
+      gap:30px;
+      max-width:1400px;margin:0 auto;
+    }
+    .service-card{
+      background:var(--lightgray);
+      border:2px solid rgba(255,0,0,0.3);
+      border-radius:12px;
+      padding:35px 25px;
+      transition:all 0.4s;
+    }
+    .service-card:hover{
+      transform:translateY(-12px);
+      border-color:var(--red);
+      box-shadow:0 0 35px rgba(255,0,0,0.4);
+    }
+    .service-card h3{
+      color:var(--orange);margin-bottom:15px;font-size:1.6rem;
+    }
+    .service-card p{color:#ddd;line-height:1.6;}
+
+    .about{
+      padding:100px 5%;
+      background:var(--lightgray);
+      text-align:center;
+    }
+    .about p{
+      max-width:900px;margin:0 auto 40px;font-size:1.2rem;color:#ccc;
+    }
+
+    .why{
+      padding:100px 5%;
+      background:linear-gradient(135deg, #1a0000, var(--gray));
+    }
+    .why-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+      gap:30px;
+      max-width:1200px;margin:0 auto;
+    }
+    .why-card{
+      text-align:center;
+      padding:30px;
+    }
+    .why-card i{font-size:3.5rem;color:var(--red);margin-bottom:20px;}
+
+    .contact{
+      padding:100px 5%;
+      background:var(--gray);
+    }
+    .contact-info{
+      display:flex;flex-wrap:wrap;gap:40px;justify-content:center;
+      max-width:1100px;margin:0 auto;
+    }
+    .info-box{
+      background:var(--lightgray);
+      padding:30px;
+      border-radius:12px;
+      min-width:300px;
+      border:1px solid var(--red);
+    }
+
+    footer{
+      background:#000;padding:60px 20px 40px;text-align:center;color:#666;
+      border-top:3px solid var(--red);
+    }
+    footer a{color:var(--orange);text-decoration:none;}
+    footer a:hover{color:var(--red);}
+
+    @keyframes pulse-red{0%,100%{box-shadow:0 0 0 0 rgba(255,0,0,0.7)}70%{box-shadow:0 0 0 30px rgba(255,0,0,0)}}
+
+    @media(max-width:768px){
+      .menu-toggle{display:block;}
+      nav{display:none;flex-direction:column;position:absolute;top:100%;left:0;width:100%;background:rgba(0,0,0,0.98);padding:30px 0;}
+      nav.active{display:flex;}
+      nav a{font-size:1.7rem;margin:12px 0;}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- WhatsApp Flotante -->
+  <a href="https://wa.me/573189411374" class="whatsapp-fixed" target="_blank" title="Escríbenos por WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <header>
+    <div class="logo">EXTINTOR 333</div>
+    <div class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('active')">☰</div>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#porque">¿Por qué nosotros?</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="inicio">
+    <div style="position:relative;z-index:10;">
+      <h1>EXTINTOR 333</h1>
+      <p>Recarga • Mantenimiento • Inspección Profesional</p>
+      <p style="font-size:1.4rem;margin-top:10px;">Bucaramanga • Floridablanca • Área Metropolitana</p>
+      
+      <div class="hero-buttons">
+        <a href="#servicios" class="btn">Ver Servicios</a>
+        <a href="https://wa.me/573189411374" target="_blank" class="btn whatsapp">WhatsApp Directo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios -->
+  <section class="services" id="servicios">
+    <div class="section-title">
+      <h2>Nuestros Servicios</h2>
+      <p style="text-align:center;color:#ffcc99;font-size:1.3rem;">Seguridad contra incendios con la mejor atención en Santander</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Recarga de Extintores</h3>
+        <p>Recarga completa de extintores ABC, BC, CO₂, agua, espuma y halón. Cumplimos con todas las normas técnicas.</p>
+      </div>
+      <div class="service-card">
+        <h3>Mantenimiento Preventivo</h3>
+        <p>Revisión, limpieza, cambio de válvulas, mangueras y sellos de seguridad.</p>
+      </div>
+      <div class="service-card">
+        <h3>Inspección y Certificación</h3>
+        <p>Inspección según NTC 2885 y NTC 3808. Entregamos certificado oficial.</p>
+      </div>
+      <div class="service-card">
+        <h3>Prueba Hidrostática</h3>
+        <p>Prueba obligatoria de cilindros con registro y certificación.</p>
+      </div>
+      <div class="service-card">
+        <h3>Servicio a Domicilio</h3>
+        <p>Recarga y mantenimiento en tu hogar, oficina, industria o conjunto residencial.</p>
+      </div>
+      <div class="service-card">
+        <h3>Venta de Extintores Nuevos</h3>
+        <p>Extintores de todas las capacidades y tipos con garantía.</p>
+      </div>
+      <div class="service-card">
+        <h3>Capacitación</h3>
+        <p>Entrenamiento práctico en el uso correcto de extintores y planes de emergencia.</p>
+      </div>
+      <div class="service-card">
+        <h3>Plan Anual de Mantenimiento</h3>
+        <p>Contrato con visitas programadas y reporte técnico mensual.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sobre Nosotros -->
+  <section class="about" id="nosotros">
+    <h2>Sobre Extintor 333</h2>
+    <p>Somos una empresa especializada en la recarga, mantenimiento e inspección de extintores en Bucaramanga y Floridablanca. Con más de años de experiencia, nos destacamos por nuestra rapidez, profesionalismo y cumplimiento estricto de las normas NTC.</p>
+    <p>Atendemos residencias, empresas, industrias y entidades públicas con el compromiso de proteger vidas y bienes.</p>
+  </section>
+
+  <!-- Por qué elegirnos -->
+  <section class="why" id="porque">
+    <div class="section-title">
+      <h2>¿Por qué elegir Extintor 333?</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <i class="fas fa-shield-alt"></i>
+        <h3>Certificados y Normados</h3>
+        <p>Cumplimos estrictamente NTC 2885 y NTC 3808.</p>
+      </div>
+      <div class="why-card">
+        <i class="fas fa-truck"></i>
+        <h3>Servicio Rápido a Domicilio</h3>
+        <p>Nos desplazamos a cualquier zona de Bucaramanga y Floridablanca.</p>
+      </div>
+      <div class="why-card">
+        <i class="fas fa-clock"></i>
+        <h3>Atención Inmediata</h3>
+        <p>Recargas de emergencia disponibles.</p>
+      </div>
+      <div class="why-card">
+        <i class="fas fa-users"></i>
+        <h3>Técnicos Expertos</h3>
+        <p>Personal altamente capacitado y con experiencia local.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section class="contact" id="contacto">
+    <div class="section-title">
+      <h2>Contáctanos</h2>
+    </div>
+    <div class="contact-info">
+      <div class="info-box">
+        <h3><i class="fab fa-whatsapp"></i> WhatsApp</h3>
+        <p><a href="https://wa.me/573189411374" target="_blank">+57 318 941 1374</a></p>
+      </div>
+      <div class="info-box">
+        <h3><i class="fas fa-map-marker-alt"></i> Cobertura</h3>
+        <p>Bucaramanga • Floridablanca • Girón • Piedecuesta<br>Todo el Área Metropolitana</p>
+        <p><strong>Servicio a domicilio rápido</strong></p>
+      </div>
+      <div class="info-box">
+        <h3><i class="fas fa-clock"></i> Horario</h3>
+        <p>Lunes a Viernes: 7:00 a.m. - 6:00 p.m.<br>Sábados: 8:00 a.m. - 2:00 p.m.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Extintor 333 • Recarga y Mantenimiento Profesional de Extintores</p>
+    <p>Protegiendo Bucaramanga y Floridablanca • Cumplimos todas las normas NTC</p>
+    <p><a href="https://wa.me/573189411374">WhatsApp: +57 318 941 1374</a></p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.querySelector('nav').classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>
